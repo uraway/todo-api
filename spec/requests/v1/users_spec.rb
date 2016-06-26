@@ -9,7 +9,8 @@ describe 'POST /v1/login' do
   end
 
   it 'logins' do
-    post '/v1/login', user_params
+    post '/v1/login',
+      params: user_params
 
     expect(response).to be_success
     expect(response.status).to eq 200
@@ -22,7 +23,8 @@ describe 'POST /v1/login' do
   end
 
   it 'fails to login when email is invalid' do
-    post '/v1/login', email: user.email, password: 123
+    post '/v1/login',
+      params: { email: user.email, password: 123 }
 
     expect(response).not_to be_success
     expect(response.status).to eq 422
@@ -30,7 +32,8 @@ describe 'POST /v1/login' do
   end
 
   it 'fails to login when password is invalid' do
-    post '/v1/login', email: 'wrong@example.com', password: user.password
+    post '/v1/login',
+      params: { email: 'wrong@example.com', password: user.password }
 
     expect(response).not_to be_success
     expect(response.status).to eq 422
