@@ -9,13 +9,26 @@ gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'active_model_serializers', tag: 'v0.10.0.rc3', git: 'https://github.com/rails-api/active_model_serializers.git'
 gem 'devise'
-gem 'sqlite3'
 gem 'listen'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'chronic'
 
 group :development, :test do
   gem 'faker'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'annotate'
+  # rspec gems ~~
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'json_spec'
+  gem 'parallel_tests'
+  gem 'fuubar'
+  gem 'shoulda-matchers'
+  gem "autodoc", group: :test
+  # ~~ rspec gems
+end
+
+group :development do
+  gem 'web-console', '~> 2.0'
 end
