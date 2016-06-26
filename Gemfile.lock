@@ -1,13 +1,3 @@
-GIT
-  remote: https://github.com/rails-api/active_model_serializers.git
-  revision: 0587d08a1cd95b127c0915894fb1072870c36859
-  tag: v0.10.0.rc3
-  specs:
-    active_model_serializers (0.10.0.rc3)
-      actionpack (>= 4.0)
-      activemodel (>= 4.0)
-      railties (>= 4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -34,6 +24,11 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_model_serializers (0.10.1)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      jsonapi (~> 0.1.1.beta2)
+      railties (>= 4.1, < 6)
     activejob (5.0.0.rc2)
       activesupport (= 5.0.0.rc2)
       globalid (>= 0.3.6)
@@ -90,6 +85,8 @@ GEM
     json_spec (1.1.4)
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
+    jsonapi (0.1.1.beta2)
+      json (~> 1.8)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -204,7 +201,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers!
+  active_model_serializers
   annotate
   autodoc
   byebug
@@ -219,7 +216,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rack-cors
   rails (>= 5.0.0.rc2, < 5.1)
-  rspec-rails (~> 3.0)
+  rspec-rails
   shoulda-matchers
   spring
   sqlite3
