@@ -18,18 +18,14 @@
 #  access_token           :string
 #
 
-class User < ActiveRecord::Base
-  devise :database_authenticatable, :recoverable, :validatable
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-  after_create :update_access_token!
-
-  validates :email, presence: true
-
-  private
-
-  def update_access_token!
-    self.access_token = "#{self.id}:#{Devise.friendly_token}"
-    save
-  end
-
-end
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value

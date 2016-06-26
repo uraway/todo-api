@@ -42,6 +42,6 @@ class ApplicationController < ActionController::API
   # Renders a 401 error
   def authentication_error
     # User's token is either invalid or not in the right format
-    render json: {error: t('unauthorized')}, status: 401  # Authentication timeout
+    render json: {error: t('device.failure.unauthenticated')}, status: 401  # Authentication timeout
   end
 end

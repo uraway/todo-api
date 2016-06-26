@@ -9,7 +9,7 @@ module V1
 
       if @user.valid_password?(params[:password])
         sign_in :user, @user
-        render json: @user, serializer: SessionSerializer, root: nil
+        render json: @user, serializer: SessionSerializer
       else
         invalid_login_attempt
       end
@@ -19,8 +19,7 @@ module V1
 
     def invalid_login_attempt
       warden.custom_failure!
-      render json: {error: t('sessions_controller.invalid_login_attempt')}, status: :unprocessable_entity
+      render json: {error: t('devise.failure.invalid')}, status: :unprocessable_entity
     end
-
   end
 end

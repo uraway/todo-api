@@ -18,18 +18,9 @@
 #  access_token           :string
 #
 
-class User < ActiveRecord::Base
-  devise :database_authenticatable, :recoverable, :validatable
-
-  after_create :update_access_token!
-
-  validates :email, presence: true
-
-  private
-
-  def update_access_token!
-    self.access_token = "#{self.id}:#{Devise.friendly_token}"
-    save
+FactoryGirl.define do
+  factory :user do
+    email 'xxx@exmaple.com'
+    password 'password'
   end
-
 end

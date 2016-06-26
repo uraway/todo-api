@@ -18,18 +18,14 @@
 #  access_token           :string
 #
 
-class User < ActiveRecord::Base
-  devise :database_authenticatable, :recoverable, :validatable
+require 'rails_helper'
 
-  after_create :update_access_token!
+RSpec.describe User, type: :model do
+  describe '#validate' do
 
-  validates :email, presence: true
-
-  private
-
-  def update_access_token!
-    self.access_token = "#{self.id}:#{Devise.friendly_token}"
-    save
+    it 'passes validation' do
+      user = FactoryGirl.build(:user)
+      expect(user).to be_valid
+    end
   end
-
 end
