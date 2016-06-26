@@ -19,7 +19,7 @@ Bundler.require(*Rails.groups)
 module TodoApi
   class Application < Rails::Application
 
-    config.middleware.insert_before 'Rack::Runtime', 'Rack::Cors' do
+    config.middleware.insert_before Rack::Runtime, Rack::Cors do
       allow do
         origins '*'
         resource '*',
