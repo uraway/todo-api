@@ -27,5 +27,16 @@ RSpec.describe User, type: :model do
       user = FactoryGirl.build(:user)
       expect(user).to be_valid
     end
+
+    it 'fails validation when email is nil' do
+      user = FactoryGirl.build(:user, email: nil)
+      expect(user).to be_invalid
+    end
+
+    it 'fails validation when email is not unique' do
+      FactoryGirl.create(:user)
+      user = FactoryGirl.build(:user)
+      expect(user).to be_invalid
+    end
   end
 end
