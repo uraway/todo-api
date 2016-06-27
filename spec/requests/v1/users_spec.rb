@@ -17,7 +17,7 @@ describe 'POST /v1/login' do
     body = response.body
     expect(body).to have_json_path 'email'
     expect(body).to be_json_eql(%("#{user.email}")).at_path 'email'
-    expect(body).to have_json_path 'user_id'
+    expect(body).to have_json_path 'id'
     expect(body).to have_json_path 'token_type'
     expect(body).to have_json_path 'access_token'
   end
