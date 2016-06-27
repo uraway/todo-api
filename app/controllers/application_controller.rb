@@ -26,8 +26,8 @@ class ApplicationController < ActionController::API
       return
     end
 
-    user_id = auth_token.split(':').first
-    user = User.where(id: user_id).first
+    @user_id = auth_token.split(':').first
+    user = User.find_by(id: @user_id)
 
     if user && Devise.secure_compare(user.access_token, auth_token)
       # User can access
@@ -42,6 +42,6 @@ class ApplicationController < ActionController::API
   # Renders a 401 error
   def authentication_error
     # User's token is either invalid or not in the right format
-    render json: {error: t('device.failure.unauthenticated')}, status: 401  # Authentication timeout
+    render json: {error: t('unauthorized')}, status: 401  # Authentication timeout
   end
 end
