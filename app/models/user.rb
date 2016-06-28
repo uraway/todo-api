@@ -19,12 +19,11 @@
 #
 
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :recoverable, :validatable
+  devise :database_authenticatable, :recoverable, :validatable, :registerable
 
   after_create :update_access_token!
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  validates :email, presence: true, uniqueness: true
 
   private
 
