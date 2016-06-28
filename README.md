@@ -1,24 +1,29 @@
-# README
+# todo-api
+Rails todo API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development
 
-Things you may want to cover:
+Install dependencies:
+```
+$ bundle install
+```
 
-* Ruby version
+Set database:
+```
+$ rake db:create db:migrate db:seed
+```
 
-* System dependencies
+Start rails server:
+```
+$ rails s -p 8080
+```
 
-* Configuration
+## Spec
+```
+$ bundle exec rspec spec/path/to/file
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Update annotation
+```
+$ bundle exec annotate
+```
