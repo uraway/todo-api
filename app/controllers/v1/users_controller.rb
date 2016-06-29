@@ -5,18 +5,12 @@ module V1
     # POST /v1/users
     # Creates an user
     def create
-      @user = User.new user_params
+      @user = User.new(email: params[:email], password: params[:password])
       if @user.save
         render json: @user, serializer: V1::SessionSerializer
       else
         render json: { error: t('devise.failure.invalid') }, status: :unprocessable_entity
       end
-    end
-
-    private
-
-    def user_params
-      params.require(:user).permit(:email, :password)
     end
   end
 end

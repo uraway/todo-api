@@ -43,11 +43,10 @@ end
 
 describe 'POST /v1/users' do
   let(:user) { FactoryGirl.create(:user) }
-  let(:user_params) { { email: user.email, password: user.password } }
 
   it 'create a new user' do
     post '/v1/users',
-      params: { user: { email: 'xxx@exmaple.com', password: 'password' } }
+      params: { email: 'xxx@exmaple.com', password: 'password' }
 
     expect(response).to be_success
     expect(response.status).to eq 200
@@ -55,7 +54,7 @@ describe 'POST /v1/users' do
 
   it 'fails to create a new user when email is nil' do
     post '/v1/users',
-      params: { user: { email: nil, password: user.password } }
+      params: { email: nil, password: user.password }
 
     expect(response).not_to be_success
     expect(response.status).to eq 422
@@ -64,7 +63,7 @@ describe 'POST /v1/users' do
 
   it 'fails to create a new user when email is invalid' do
     post '/v1/users',
-      params: { user: { email: 'invalid,,,email', password: user.password } }
+      params: { email: 'invalid,,,email', password: user.password }
 
     expect(response).not_to be_success
     expect(response.status).to eq 422
@@ -73,7 +72,7 @@ describe 'POST /v1/users' do
 
   it 'fails to create a new user when password is nil' do
     post '/v1/users',
-      params: { user: { email: user.email, password: nil } }
+      params: { email: user.email, password: nil }
 
     expect(response).not_to be_success
     expect(response.status).to eq 422
@@ -82,7 +81,7 @@ describe 'POST /v1/users' do
 
   it 'fails to create a new user when password is less than 6 charactors' do
     post '/v1/users',
-      params: { user: { email: user.email, password: '1234' } }
+      params: { email: user.email, password: '1234' }
 
     expect(response).not_to be_success
     expect(response.status).to eq 422
