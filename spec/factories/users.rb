@@ -20,6 +20,8 @@
 
 FactoryGirl.define do
   factory :user do
+    id 1
+    access_token '1:xcfepxjVTFjbL8E-ejAj'
     email 'xxx@exmaple.com'
     password 'password'
   end

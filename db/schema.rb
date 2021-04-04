@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160625153144) do
+ActiveRecord::Schema.define(version: 20160629041728) do
+
+  create_table "todos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "text",       default: "",    null: false
+    t.boolean  "completed",  default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["user_id"], name: "index_todos_on_user_id"
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false

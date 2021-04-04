@@ -5,4 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 User.create(email: 'user@example.com', password: 'password')
+Todo.create(text: 'My first todo', user_id: 1)
+Todo.create(text: 'My second todo', completed: true, user_id: 1)

@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
 
+  has_many :todos
   private
 
   def update_access_token!
